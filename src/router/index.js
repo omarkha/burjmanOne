@@ -1,19 +1,50 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomePage from '../pages/HomePage.vue'
+import AboutPage from '../pages/AboutPage.vue'
+import BlogPage from '../pages/blog/BlogPage.vue'
+import BlogPost from '../pages/blog/BlogPost.vue'
+import StorePage from '../pages/store/StorePage.vue'
+import ContactPage from '../pages/ContactPage.vue'
+import NotFoundPage from "../pages/NotFoundPage.vue"
+import AffiliatePage from '../pages/affiliateStore/AffiliatePage.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomePage
   },
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: AboutPage
+  },
+  {
+    path: '/blog',
+    name: 'blog',
+    component: BlogPage
+  }, {
+    path: '/blog/:id',
+    name: 'blogPost',
+    component: BlogPost
+  },
+  {
+    path: '/store',
+    name: 'store',
+    component: StorePage
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: ContactPage
+  }, {
+    path: '/affiliate-store',
+    name: 'affiliateStore',
+    component: AffiliatePage
+  }, {
+    path: '/:catchAll(.*)',
+    name: 'notFound',
+    component: NotFoundPage,
   }
 ]
 
